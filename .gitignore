@@ -64,7 +64,6 @@ jspm_packages/
 
 # Office temporary files
 *.docx
-*.pdf
 ~$*.docx
 ~$*.pdf
 
