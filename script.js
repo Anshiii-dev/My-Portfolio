@@ -539,14 +539,53 @@
     /* ---------------------------------------------------------------
        Contact form -> Gmail compose
     --------------------------------------------------------------- */
-    const form = $('#contactForm'), note = $('#formNote');
+    const form = $('#contactForm'), note = $('#formNote'), panel = $('#sendOptions');
+    const submitBtn = $('button[type="submit"]', form);
+    let draft = { subject: '', body: '' };
+
+    function showOptions(show) {
+        panel.hidden = !show;
+        submitBtn.hidden = show;
+        $$('input, textarea', form).forEach(f => { f.readOnly = show; });
+        if (show) panel.focus({ preventScroll: false }); else note.textContent = '';
+    }
+
     form.addEventListener('submit', e => {
         e.preventDefault();
         const name = $('#name').value.trim(), email = $('#email').value.trim();
         const subject = $('#subject').value.trim(), message = $('#message').value.trim();
         const body = `From: ${name} (${email})\n\n${message}`;
-        window.open(`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${EMAIL}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank', 'noopener');
-        note.textContent = 'Opening Gmail with your message. If it did not open, email ' + EMAIL;
-        form.reset();
+        draft = { subject, body };
+
+        // Gmail web compose
+        $('#sendGmail').href = `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${EMAIL}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        // default mail app (works on every device; mailto wants CRLF line breaks)
+        $('#sendMailto').href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.replace(/\n/g, '\r\n'))}`;
+        $('#sendSummary').textContent = `To ${EMAIL} · Subject: ${subject}`;
+        note.textContent = '';
+        showOptions(true);
     });
+
+    // handing off to Gmail / the mail app: confirm and clear the form
+    const handedOff = (what) => {
+        note.textContent = `Opening ${what} with your message. If nothing opened, email ${EMAIL} directly.`;
+        setTimeout(() => { form.reset(); showOptions(false); note.textContent = `Opened ${what}. Press Send there to deliver your message. Thank you!`; }, 600);
+    };
+    $('#sendGmail').addEventListener('click', () => handedOff('Gmail'));
+    $('#sendMailto').addEventListener('click', () => handedOff('your mail app'));
+
+    $('#sendCopy').addEventListener('click', async () => {
+        const text = `To: ${EMAIL}\nSubject: ${draft.subject}\n\n${draft.body}`;
+        let ok = false;
+        try { await navigator.clipboard.writeText(text); ok = true; } catch (err) {
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta);
+                ta.select(); ok = document.execCommand('copy'); ta.remove();
+            } catch (e2) { ok = false; }
+        }
+        note.textContent = ok ? `Copied. Paste it into any email app and send it to ${EMAIL}.` : `Could not copy automatically. Please email ${EMAIL} directly.`;
+    });
+
+    $('#sendEdit').addEventListener('click', () => { showOptions(false); $('#message').focus(); });
 })();

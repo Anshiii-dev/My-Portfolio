@@ -436,3 +436,15 @@ html:not([data-motion="off"]) .hero-bottom > a.hero-edition:hover::after { trans
     .hero-bottom > a.hero-edition { padding: 13px 20px; font-size: 11px; margin-right: 0; }
 }
 @media (max-width: 560px) { .hero-bottom > a:not(.hero-edition) { gap: 12px; letter-spacing: 1.2px; } .hero-bottom > a.hero-edition { padding: 12px 16px; letter-spacing: 1px; } }
+
+/* ===== Contact: "how to send" options ===== */
+[hidden] { display: none !important; }
+.send-options { margin-top: 28px; padding: 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); outline: none; }
+.send-options:focus-visible { border-color: var(--accent); }
+.send-title { font: 400 26px/1.2 var(--font-display); letter-spacing: -.01em; margin-bottom: 8px; }
+.send-summary { font: 10px/1.6 var(--font-mono); letter-spacing: 1.1px; color: #8f8a83; margin-bottom: 20px; word-break: break-word; }
+.send-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.send-actions .pill-link { gap: 18px; margin-top: 0; cursor: pointer; font-family: var(--font-sans); }
+.send-edit { margin-top: 18px; background: none; border: 0; padding: 0; color: #9d9d9d; font: 10px var(--font-mono); letter-spacing: 1.2px; text-transform: uppercase; cursor: pointer; }
+.send-edit:hover { color: var(--accent); }
+.contact-form input[readonly], .contact-form textarea[readonly] { color: #cfcac2; cursor: default; }

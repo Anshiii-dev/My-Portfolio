@@ -375,6 +375,16 @@
                     <label>YOUR MESSAGE<textarea id="message" rows="4" required></textarea></label>
                     <button type="submit" class="pill-link"><span>Send message</span> ↗</button>
                     <p class="form-note" id="formNote" role="status"></p>
+                    <div class="send-options" id="sendOptions" role="group" aria-label="Choose how to send your message" tabindex="-1" hidden>
+                        <p class="send-title">Your message is ready. Choose how to send it.</p>
+                        <p class="send-summary" id="sendSummary"></p>
+                        <div class="send-actions">
+                            <a class="pill-link" id="sendGmail" href="#" target="_blank" rel="noopener"><span>Open in Gmail</span> ↗</a>
+                            <a class="pill-link" id="sendMailto" href="#"><span>Open in Mail app</span> ↗</a>
+                            <button class="pill-link" id="sendCopy" type="button"><span>Copy message</span> ⧉</button>
+                        </div>
+                        <button class="send-edit" id="sendEdit" type="button">← Edit message</button>
+                    </div>
                 </form>
             </div>
         </section>
