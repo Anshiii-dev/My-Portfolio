@@ -1,510 +1,397 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-motion="on">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Anas Saleem - AI Developer & Software Engineer</title>
+    <title>Muhammad Anas Saleem - AI & Software Engineer</title>
+    <meta name="description" content="AI & Software Engineer building agentic AI, real-time voice agents and full-stack products.">
+    <meta name="theme-color" content="#030303">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" id="progress"></div>
+
+    <!-- Fixed hero backdrop: portrait particle cloud (WebGL) with image fallback -->
+    <div class="scene-backdrop" id="scene" aria-hidden="true">
+        <div class="artifact-fallback" id="artifact">
+            <img src="images/hero-signal.png" alt="" width="1122" height="1402" fetchpriority="high">
+        </div>
+        <canvas id="heroCanvas"></canvas>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">Anas Saleem</span>
-            </div>            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#experience" class="nav-link">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="nav-controls">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+    <header class="navigation" id="navigation" data-hidden="false">
+        <a class="wordmark" href="#top" aria-label="Anas Saleem">Anas Saleem</a>
+        <nav class="nav-links" id="main-nav" aria-label="Main navigation">
+            <a class="nav-destination" href="#work"><span data-sig>Work</span><span class="nav-mobile-arrow" aria-hidden="true">↗</span></a>
+            <a class="nav-destination" href="#about"><span data-sig>About</span><span class="nav-mobile-arrow" aria-hidden="true">↗</span></a>
+            <a class="nav-destination" href="#skills"><span data-sig>Skills</span><span class="nav-mobile-arrow" aria-hidden="true">↗</span></a>
+            <a class="nav-destination" href="#journey"><span data-sig>Journey</span><span class="nav-mobile-arrow" aria-hidden="true">↗</span></a>
+            <a class="nav-contact" href="#contact"><span data-sig>Let’s talk</span><i aria-hidden="true">↗</i></a>
+        </nav>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><span>Menu</span></button>
+    </header>
+
+    <main id="main">
+        <!-- HERO -->
+        <section class="hero" id="top">
+            <div class="hero-grid" aria-hidden="true"></div>
+            <div class="hero-topline">
+                <span><i class="live-dot"></i> AI &amp; SOFTWARE ENGINEER. TEAM LEAD.</span>
+                <span>BASED IN LAHORE · BUILDING WITH AI</span>
+            </div>
+
+            <div class="hero-content">
+                <span class="hero-kicker"><span data-sig>A HUMAN PERSPECTIVE ON AI</span></span>
+                <h1><span class="line-mask"><span class="reveal-line">Anas <em>Saleem</em></span></span></h1>
+                <div class="hero-description">
+                    <p>I build agentic AI, real-time voice agents<br class="desktop-break"> and full-stack products that ship.</p>
+                    <div class="hero-actions">
+                        <a class="pill-link" href="#work"><span data-sig>Explore my work</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a>
+                        <a class="text-link" href="#contact"><span data-sig>Start a conversation</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content" data-aos="fade-up">
-                <h1 class="hero-title">
-                    <span class="typing-text">Hi, I'm Muhammad Anas Saleem</span>
-                </h1>
-                <h2 class="hero-subtitle">AI Developer & Software Engineer</h2>
-                <p class="hero-description">
-                    Passionate about building intelligent systems, training ML models, and extracting insights from data. 
-                    Experienced in Python, TensorFlow, Machine Learning, and Computer Vision.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                    <a href="Anas Resume.pdf" class="btn btn-primary" download="Anas_Saleem_Resume.pdf">
-                        <i class="fas fa-download"></i> Download Resume
+            <div class="hero-side-note"><span>01 / PRESENCE</span><span>AGENTIC AI<br>VOICE AGENTS<br>FULL STACK</span></div>
+
+            <div class="hero-bottom">
+                <a href="#about"><span class="scroll-line"></span> SCROLL TO DISCOVER <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg></a>
+                <span>BUILDING WITH AI SINCE 2024</span>
+                <a class="hero-edition" href="Anas_Saleem_Resume.pdf" download="Anas_Saleem_Resume.pdf">DOWNLOAD RESUME ↓</a>
+            </div>
+        </section>
+
+        <!-- PROOF STRIP -->
+        <section class="proof-strip" aria-label="Highlights">
+            <div><strong><span data-count="10">0</span><span class="u">+</span></strong><p>AI &amp; ML projects built across vision, language and voice</p></div>
+            <div><strong><span data-count="2">0</span><span class="u">+</span></strong><p>years of hands-on machine learning experience</p></div>
+            <div><strong><span data-count="15">0</span><span class="u">+</span></strong><p>frameworks and technologies used in production</p></div>
+            <a href="#work">THE WORK.<br>THE REAL-WORLD IMPACT.<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="about chapter solid-section">
+            <div class="section-label"><span><span data-sig>01 / THE PERSON BEHIND THE WORK</span></span><span>A CONNECTED PERSPECTIVE</span></div>
+            <div class="about-grid">
+                <div class="about-copy" data-reveal>
+                    <h2>Models are<br>the starting point.<br><em>Impact is the point.</em></h2>
+                    <p class="lead">I connect machine learning, engineering, and product thinking.</p>
+                    <p>AI &amp; Software Engineer and full-stack developer across machine learning, computer vision, NLP and agentic AI. I build and ship end-to-end products — AI pipelines, backends, frontends and cloud deployments — working across <strong class="copy-highlight">the data, the model, and the product around it.</strong></p>
+                    <a class="text-link" href="#journey"><span>Read my journey</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+                    <div class="identity-notes"><span>ML ENGINEER’S MIND.</span><span>BUILDER’S INSTINCT.</span><span>LEARNER’S AMBITION.</span></div>
+                </div>
+
+                <div class="signal-explorer signal-about" id="explorer">
+                    <div class="signal-topline"><span class="eyebrow">THREE DISCIPLINES. ONE PERSPECTIVE.</span><span aria-hidden="true" id="exCount">01 / 03</span></div>
+                    <div class="signal-visual" id="exVisual" aria-hidden="true">
+                        <div class="signal-fallback shape-structure" id="exFallback"><i></i><i></i><i></i><i></i><i></i></div>
+                        <canvas id="exCanvas"></canvas>
+                        <span class="signal-center-label"><span data-sig id="exLabel">STRUCTURE</span></span>
+                    </div>
+                    <div class="signal-options" role="group" aria-label="Explore my disciplines" id="exOptions">
+                        <button aria-pressed="true">Build<span aria-hidden="true">↗</span></button>
+                        <button aria-pressed="false">Train<span aria-hidden="true">↗</span></button>
+                        <button aria-pressed="false">Deploy<span aria-hidden="true">↗</span></button>
+                    </div>
+                    <div class="signal-story" aria-live="polite">
+                        <h3 id="exTitle">Give an idea structure.</h3>
+                        <p id="exCopy">Voice agents, Agentic RAG systems and AI products, from the backend to the browser.</p>
+                        <a class="text-link" id="exLink" href="#work"><span id="exLinkText">Explore the products</span> ↗</a>
+                    </div>
+                    <p class="signal-hint">Choose a perspective.</p>
+                </div>
+            </div>
+
+            <div class="edu" data-reveal>
+                <div>
+                    <h4 class="eyebrow">EDUCATION</h4>
+                    <p><strong>BS Computer Science</strong><span>2023 – 2027</span><br>University of Education, Main Campus, Lahore</p>
+                    <p><strong>Intermediate Pre-Engineering</strong><span>2020 – 2022</span><br>Aspire College, Renala Khurd</p>
+                </div>
+                <div>
+                    <h4 class="eyebrow">LANGUAGES</h4>
+                    <p><strong>English</strong><span>Full professional proficiency</span></p>
+                    <p><strong>Urdu</strong><span>Native proficiency</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK -->
+        <section id="work" class="selected-work chapter solid-section">
+            <div class="section-label"><span><span data-sig>02 / SELECTED WORK</span></span><span>BUILT AT NEXTERSE. USED BY REAL TEAMS.</span></div>
+            <div class="selected-heading" data-editorial-reveal>
+                <h2>Ideas are a start.<br><em>This is the work.</em></h2>
+                <p>Voice agents, hiring AI, code and design tools.<br>Products I helped build at Nexterse,<br>plus a few I built on my own.</p>
+            </div>
+
+            <div class="work-gallery">
+                <article class="work-piece work-piece-lead" data-editorial-reveal>
+                    <a class="work-artwork" href="https://nexterse.com/products/xorris" target="_blank" rel="noopener" aria-label="Xorris, multi-tenant voice calling platform">
+                        <div class="project-visual shots">
+                            <img class="shot shot-a" src="images/projects/xorris-dashboard.webp" alt="Xorris call activity and global phone numbers dashboard" loading="lazy" width="1512" height="1166">
+                            <img class="shot shot-b" src="images/projects/xorris-call.webp" alt="Xorris ongoing AI call screen" loading="lazy" width="1512" height="1166">
+                        </div>
+                        <span class="work-artwork-arrow">↗</span>
                     </a>
-                </div>
-                <div class="hero-social">
-                    <a href="https://www.linkedin.com/in/anas-saleem2004/" target="_blank" class="social-link">
-                        <i class="fab fa-linkedin-in"></i>
+                    <div class="work-caption">
+                        <span class="project-index">01</span>
+                        <div>
+                            <span class="eyebrow">VOICE AI · TEAM LEAD</span>
+                            <h3>Xorris</h3>
+                            <p>A multi-tenant voice calling platform that combines LiveKit and Twilio for SIP calling and AI voice agents. I led the team across backend, frontend and integrations.</p>
+                            <ul class="work-points"><li>Human-to-human call flows alongside AI voice agent calls</li><li>Self-service phone number purchasing through Twilio’s APIs</li><li>A shared LiveKit agent that identifies the caller and loads their persona at runtime</li><li>Browser-to-phone calling with call recording</li><li>CRM module: leads, contacts and potentials, with calls ranked by dispositions and tags</li><li>Phone numbers dashboard with a number health view</li></ul>
+                            <ul class="project-tags"><li>LIVEKIT</li><li>TWILIO</li><li>SIP</li><li>VOICE AGENTS</li></ul>
+                            <a class="text-link" href="https://nexterse.com/products/xorris" target="_blank" rel="noopener"><span>View product page</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-piece " data-editorial-reveal>
+                    <a class="work-artwork" href="https://nexterse.com/products/joblynk" target="_blank" rel="noopener" aria-label="Joblynk, AI recruiting platform">
+                        <div class="project-visual shots">
+                            <img class="shot shot-a" src="images/projects/joblynk-dashboard.webp" alt="Joblynk hiring dashboard" loading="lazy" width="1512" height="1166">
+                            <img class="shot shot-b" src="images/projects/joblynk-talent.webp" alt="Joblynk talent discovery" loading="lazy" width="1512" height="1166">
+                        </div>
+                        <span class="work-artwork-arrow">↗</span>
                     </a>
-                    <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=anssaleem504@gmail.com&su=Hello%20from%20your%20portfolio%20visitor!&body=Hi%20Anas,%0A%0AI%20visited%20your%20portfolio%20website%20and%20would%20like%20to%20connect%20with%20you.%0A%0ABest%20regards" class="social-link" target="_blank">
-                        <i class="far fa-envelope"></i>
+                    <div class="work-caption">
+                        <span class="project-index">02</span>
+                        <div>
+                            <span class="eyebrow">RECRUITING AI</span>
+                            <h3>Joblynk</h3>
+                            <p>An AI recruiting platform that automates interviews and candidate evaluation. I worked on the AI side: the interview system, the platform chatbots, and agents that create and manage job postings.</p>
+                            
+                            <ul class="project-tags"><li>AI INTERVIEWS</li><li>CHATBOTS</li><li>AI AGENTS</li></ul>
+                            <a class="text-link" href="https://nexterse.com/products/joblynk" target="_blank" rel="noopener"><span>View product page</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-piece " data-editorial-reveal>
+                    <a class="work-artwork" href="https://nexterse.com/products/croquis" target="_blank" rel="noopener" aria-label="Croquis AI, AI developer workspace">
+                        <div class="project-visual shots">
+                            <img class="shot shot-a" src="images/projects/croquis-dashboard.webp" alt="Croquis AI workspace dashboard" loading="lazy" width="1512" height="1166">
+                            <img class="shot shot-b" src="images/projects/croquis-agent.webp" alt="Croquis AI coding agent chat" loading="lazy" width="1512" height="1166">
+                        </div>
+                        <span class="work-artwork-arrow">↗</span>
                     </a>
-                    <a href="tel:+923072936880" class="social-link">
-                        <i class="fas fa-phone"></i>
+                    <div class="work-caption">
+                        <span class="project-index">03</span>
+                        <div>
+                            <span class="eyebrow">AI DEVELOPER TOOL</span>
+                            <h3>Croquis AI</h3>
+                            <p>An AI workspace that turns an idea in plain language into working code with a live preview. I built the backend and the AI pipeline behind it.</p>
+                            
+                            <ul class="project-tags"><li>CODE GENERATION</li><li>LIVE PREVIEW</li><li>BACKEND</li><li>AI PIPELINE</li></ul>
+                            <a class="text-link" href="https://nexterse.com/products/croquis" target="_blank" rel="noopener"><span>View product page</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-piece " data-editorial-reveal>
+                    <a class="work-artwork" href="https://nexterse.com/products/fittsy" target="_blank" rel="noopener" aria-label="Fittsy, AI personal stylist">
+                        <div class="project-visual shots">
+                            <img class="shot shot-a" src="images/projects/fittsy-home.webp" alt="Fittsy home screen with avatar and outfit of the day" loading="lazy" width="1512" height="1166">
+                            <img class="shot shot-b" src="images/projects/fittsy-calendar.webp" alt="Fittsy calendar screen" loading="lazy" width="1512" height="1166">
+                        </div>
+                        <span class="work-artwork-arrow">↗</span>
                     </a>
-                </div>
-            </div>            <div class="hero-image" data-aos="fade-left" data-aos-delay="200">
-                <div class="profile-image-container">
-                    <img src="images/profile.png" alt="Muhammad Anas Saleem" class="profile-image">
-                    <div class="profile-border"></div>
-                </div>
-                <div class="floating-elements">
-                    <div class="floating-element" data-speed="2">
-                        <i class="fas fa-brain"></i>
+                    <div class="work-caption">
+                        <span class="project-index">04</span>
+                        <div>
+                            <span class="eyebrow">FASHION AI</span>
+                            <h3>Fittsy</h3>
+                            <p>A personal AI stylist that builds an avatar, reads your calendar and the weather, and recommends daily outfits. I worked on the fashion recommendation model.</p>
+                            
+                            <ul class="project-tags"><li>RECOMMENDATION MODEL</li><li>FASHION AI</li></ul>
+                            <a class="text-link" href="https://nexterse.com/products/fittsy" target="_blank" rel="noopener"><span>View product page</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+                        </div>
                     </div>
-                    <div class="floating-element" data-speed="3">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="floating-element" data-speed="1.5">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="floating-element" data-speed="2.5">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
+                </article>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">AI Developer & Data Analyst with expertise in machine learning and intelligent systems</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <h3>Professional Summary</h3>
-                    <p>
-                        AI Developer and Data Analyst with solid expertise in machine learning, deep learning, and data analysis. 
-                        Experienced in building intelligent systems, training ML models, and extracting insights from data.
-                    </p>
-                    <p>
-                        Proficient in Python, TensorFlow, Scikit-Learn, Pandas, Keras, LangChain, Langraph, Dockerization 
-                        and in Computer Vision. Skilled in developing AI chatbots, NLP pipelines, scalable analytics and 
-                        Computer Vision projects.
-                    </p>
-                    <p>
-                        Eager to contribute to AI innovation, predictive modeling, and intelligent automation.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number" data-count="10">0</span>
-                            <span class="stat-label">Projects Completed</span>
+                <article class="work-piece " data-editorial-reveal>
+                    <a class="work-artwork" href="https://nexterse.com/products/koadic" target="_blank" rel="noopener" aria-label="Koadic, AI designer">
+                        <div class="project-visual shots">
+                            <img class="shot shot-a" src="images/projects/koadic-overview.webp" alt="Koadic workspace overview" loading="lazy" width="1512" height="1166">
+                            <img class="shot shot-b" src="images/projects/koadic-poster.webp" alt="Koadic poster and social media generator" loading="lazy" width="1512" height="1166">
                         </div>
-                        <div class="stat">
-                            <span class="stat-number" data-count="2">0</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" data-count="15">0</span>
-                            <span class="stat-label">Technologies</span>
+                        <span class="work-artwork-arrow">↗</span>
+                    </a>
+                    <div class="work-caption">
+                        <span class="project-index">05</span>
+                        <div>
+                            <span class="eyebrow">AI DESIGN</span>
+                            <h3>Koadic</h3>
+                            <p>An AI design platform that generates images, UI wireframes, logos, brand visuals and social posts from a prompt. I built the backend and the AI generation pipeline.</p>
+                            
+                            <ul class="project-tags"><li>GENERATIVE AI</li><li>BACKEND</li><li>AI PIPELINE</li></ul>
+                            <a class="text-link" href="https://nexterse.com/products/koadic" target="_blank" rel="noopener"><span>View product page</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
                         </div>
                     </div>
-                </div>
-                <div class="about-education" data-aos="fade-left">
-                    <h3>Education</h3>
-                    <div class="education-item">
-                        <div class="education-header">
-                            <h4>BS Computer Science</h4>
-                            <span class="education-year">2023-2027</span>
-                        </div>
-                        <p class="education-institution">University of Education Main Campus, Lahore, Pakistan</p>
-                    </div>
-                    <div class="education-item">
-                        <div class="education-header">
-                            <h4>Intermediate Pre-Engineering</h4>
-                            <span class="education-year">2020-2022</span>
-                        </div>
-                        <p class="education-institution">Aspire College, Renala Khurd, Pakistan</p>
-                    </div>
-                    
-                    <h3 style="margin-top: 2rem;">Languages</h3>
-                    <div class="languages">
-                        <div class="language-item">
-                            <span class="language-name">English</span>
-                            <span class="language-level">Full Professional Proficiency</span>
-                        </div>
-                        <div class="language-item">
-                            <span class="language-name">Urdu</span>
-                            <span class="language-level">Native Proficiency</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </article>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Technical Skills</h2>
-                <p class="section-subtitle">Technologies and tools I work with</p>
             </div>
-            <div class="skills-grid">
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <div class="skill-header">
-                        <i class="fas fa-code"></i>
-                        <h3>Programming & Tools</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Jupyter Notebook</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Google Colab</span>
-                        <span class="skill-tag">VS Code</span>
-                        <span class="skill-tag">Cursor</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <div class="skill-header">
-                        <i class="fas fa-brain"></i>
-                        <h3>Machine Learning & AI</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">Deep Learning</span>
-                        <span class="skill-tag">Neural Networks</span>
-                        <span class="skill-tag">NLP</span>
-                        <span class="skill-tag">Computer Vision</span>
-                        <span class="skill-tag">Reinforcement Learning</span>
-                        <span class="skill-tag">YOLO11</span>
-                        <span class="skill-tag">CNN-RNN</span>
-                        <span class="skill-tag">Dockerization</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-                    <div class="skill-header">
-                        <i class="fas fa-layer-group"></i>
-                        <h3>Frameworks & Libraries</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">Scikit-Learn</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Matplotlib</span>
-                        <span class="skill-tag">LangChain</span>
-                        <span class="skill-tag">Hugging Face</span>
-                        <span class="skill-tag">Django</span>
-                        <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">Langraph</span>
-                        <span class="skill-tag">Mediapipe</span>
-                        <span class="skill-tag">LiveKit</span>
-                        <span class="skill-tag">Groq</span>
-                        <span class="skill-tag">Docker</span>
-                    </div>
-                </div>
-                
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
-                    <div class="skill-header">
-                        <i class="fas fa-chart-bar"></i>
-                        <h3>Data Analysis & Visualization</h3>
-                    </div>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Data Cleaning</span>
-                        <span class="skill-tag">EDA</span>
-                        <span class="skill-tag">Feature Engineering</span>
-                        <span class="skill-tag">Data Visualization</span>
-                        <span class="skill-tag">Statistical Analysis</span>
-                        <span class="skill-tag">Seaborn</span>
-                        <span class="skill-tag">Plotly</span>
-                        <span class="skill-tag">Data Scraping</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">Some of my recent work in AI and machine learning</p>
+            <p class="index-label eyebrow" data-editorial-reveal>PERSONAL &amp; EARLIER PROJECTS</p>
+            <div class="mini-grid">
+                <article class="mini-card" data-editorial-reveal>
+                    <div class="mini-art"><img src="slackbot.png" alt="Slack bot conversation" loading="lazy"></div>
+                    <span class="project-index">06</span>
+                    <h4>Slack for GitHub &amp; Jira</h4>
+                    <p>Slack and Gmail bot that watches emails and manages repositories, branches and issues straight from Slack.</p>
+                    <ul class="project-tags"><li>SLACK API</li><li>GITHUB API</li><li>JIRA API</li><li>PYTHON</li></ul>
+                </article>
+                <article class="mini-card" data-editorial-reveal>
+                    <div class="mini-art fit-cover" style="--art-bg:#0b0b0b"><img src="images/projects/voice-spectrogram.webp" alt="Speech spectrogram and waveform, illustrative" loading="lazy"><a class="credit" href="https://commons.wikimedia.org/wiki/File:SonogramVisibleSpeech.png" target="_blank" rel="noopener" title="Illustrative image from Wikimedia Commons">Illustrative · Clauer73 · CC BY-SA 4.0</a></div>
+                    <span class="project-index">07</span>
+                    <h4>LiveKit Voice Assistant</h4>
+                    <p>Low-latency voice assistant with Groq and Deepgram for real-time speech and replies.</p>
+                    <ul class="project-tags"><li>LIVEKIT</li><li>GROQ</li><li>DEEPGRAM</li></ul>
+                </article>
+                <article class="mini-card" data-editorial-reveal>
+                    <div class="mini-art fit-cover" style="--art-bg:#0b0b0b"><img src="images/projects/chatbot-eliza.webp" alt="ELIZA, a classic chatbot conversation, illustrative" loading="lazy"><a class="credit" href="https://commons.wikimedia.org/wiki/File:ELIZA_conversation.png" target="_blank" rel="noopener" title="Illustrative image from Wikimedia Commons">Illustrative · Public domain</a></div>
+                    <span class="project-index">08</span>
+                    <h4>AI Chatbot with RAG</h4>
+                    <p>LangChain and Gemini chatbot that retrieves answers from a Chroma vector database.</p>
+                    <ul class="project-tags"><li>LANGCHAIN</li><li>GEMINI</li><li>CHROMA</li></ul>
+                </article>
+                <article class="mini-card" data-editorial-reveal>
+                    <div class="mini-art fit-cover" style="--art-bg:#000"><img src="images/projects/brain-mri.webp" alt="Brain MRI scan, illustrative" loading="lazy"><a class="credit" href="https://commons.wikimedia.org/wiki/File:Meningioma_of_the_sagittal_sinus_isolated.jpg" target="_blank" rel="noopener" title="Illustrative image from Wikimedia Commons">Illustrative · Raspberry Vibe · CC0</a></div>
+                    <span class="project-index">09</span>
+                    <h4>CNN Medical Image Classification</h4>
+                    <p>Plant disease and brain tumour MRI classification with TensorFlow and Keras.</p>
+                    <ul class="project-tags"><li>TENSORFLOW</li><li>KERAS</li><li>CNN</li></ul>
+                </article>
+                <article class="mini-card" data-editorial-reveal>
+                    <div class="mini-art fit-contain" style="--art-bg:#fff"><img src="images/projects/hand-model.webp" alt="Skeletal hand model for gesture tracking, illustrative" loading="lazy"><a class="credit" href="https://commons.wikimedia.org/wiki/File:Skeletal-hand.jpg" target="_blank" rel="noopener" title="Illustrative image from Wikimedia Commons">Illustrative · Razvan · CC BY-SA 3.0</a></div>
+                    <span class="project-index">10</span>
+                    <h4>OpenCV Fun Projects</h4>
+                    <p>Gesture volume control, face anonymiser and skeleton drawing with MediaPipe.</p>
+                    <ul class="project-tags"><li>OPENCV</li><li>MEDIAPIPE</li></ul>
+                </article>
+                <article class="mini-card" data-editorial-reveal>
+                    <div class="mini-art fit-contain" style="--art-bg:#0b0b0b"><img src="images/projects/transformer-diagram.webp" alt="Transformer layers diagram, illustrative" loading="lazy"><a class="credit" href="https://commons.wikimedia.org/wiki/File:Transformer,_stacked_layers_and_sublayers.png" target="_blank" rel="noopener" title="Illustrative image from Wikimedia Commons">Illustrative · dvgodoy · CC BY 4.0</a></div>
+                    <span class="project-index">11</span>
+                    <h4>LLM Fine-tuning</h4>
+                    <p>Quantization, LoRA and QLoRA to build domain-specialised chatbots.</p>
+                    <ul class="project-tags"><li>LORA</li><li>QLORA</li><li>QUANTIZATION</li></ul>
+                </article>
             </div>
-            <div class="projects-grid">                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-image">
-                        <i class="fab fa-slack"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Slack for GitHub and Jira Automation</h3>
-                        <p>Developed a Slack and Gmail bot that automates GitHub and Jira tasks by monitoring emails and enabling repository, branch, and issue management directly from Slack.</p>
-                        <div class="project-tags">
-                            <span class="tag">Slack API</span>
-                            <span class="tag">GitHub API</span>
-                            <span class="tag">Jira API</span>
-                            <span class="tag">Python</span>
-                        </div>
-                    </div>
-                </div>                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>CNN for Medical Image Classification</h3>
-                        <p>Trained CNN models on Plant Disease and Brain Tumor Classification (MRI) datasets for medical image analysis using TensorFlow and Keras.</p>
-                        <div class="project-tags">
-                            <span class="tag">TensorFlow</span>
-                            <span class="tag">Keras</span>
-                            <span class="tag">CNN</span>
-                            <span class="tag">Medical AI</span>
-                        </div>
-                    </div>
-                </div>                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-image">
-                        <i class="fas fa-microphone"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>LiveKit Voice Assistant</h3>
-                        <p>Built a LiveKit-powered voice assistant integrated with Groq model and Deepgram for real-time, low-latency speech processing and intelligent responses.</p>
-                        <div class="project-tags">
-                            <span class="tag">LiveKit</span>
-                            <span class="tag">Groq</span>
-                            <span class="tag">Deepgram</span>
-                            <span class="tag">Voice AI</span>
-                        </div>
-                    </div>
-                </div>                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-image">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>AI-Powered Chatbot with RAG</h3>
-                        <p>Developed an advanced AI chatbot using LangChain and Gemini with Retrieval-Augmented Generation (RAG) and Chroma vector database for context-aware responses.</p>
-                        <div class="project-tags">
-                            <span class="tag">LangChain</span>
-                            <span class="tag">Gemini AI</span>
-                            <span class="tag">RAG</span>
-                            <span class="tag">Vector DB</span>
-                        </div>
-                    </div>
-                </div>                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="project-image">
-                        <i class="fas fa-hand-paper"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>OpenCV Fun Projects</h3>
-                        <p>Built gesture volume control, face anonymizer, and skeleton drawing projects using OpenCV and MediaPipe for computer vision applications.</p>
-                        <div class="project-tags">
-                            <span class="tag">OpenCV</span>
-                            <span class="tag">MediaPipe</span>
-                            <span class="tag">Computer Vision</span>
-                            <span class="tag">Gesture Recognition</span>
-                        </div>
-                    </div>
-                </div>                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="project-image">
-                        <i class="fas fa-cog"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>LLM Fine-tuning</h3>
-                        <p>Fine-tuned large language models using Quantization, LoRA & QLoRA techniques to create specialized chatbots for specific domains.</p>
-                        <div class="project-tags">
-                            <span class="tag">LLM</span>
-                            <span class="tag">LoRA</span>
-                            <span class="tag">QLoRA</span>
-                            <span class="tag">Fine-tuning</span>
-                        </div>
-                    </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="chapter solid-section">
+            <div class="section-label"><span><span data-sig>03 / HOW I WORK</span></span><span>SEVEN DISCIPLINES. ONE TOOLKIT.</span></div>
+            <div class="selected-heading" data-editorial-reveal>
+                <h2>Build with perspective.<br><em>Make complexity click.</em></h2>
+            </div>
+            <div class="expertise">
+                <article class="expertise-item" data-editorial-reveal>
+                    <span class="project-index">01</span>
+                    <h3><span data-sig-hover>Agentic AI &amp; LLM Frameworks</span></h3>
+                    <ul class="project-tags"><li>CREWAI</li><li>LANGCHAIN</li><li>LANGGRAPH</li><li>LLAMAINDEX</li><li>HUGGING FACE</li><li>GROQ</li><li>RAG &amp; AGENTIC RAG</li><li>CHATBOTS</li><li>LLM CHAINS</li><li>LLM FINE-TUNING</li></ul>
+                </article>
+                <article class="expertise-item" data-editorial-reveal>
+                    <span class="project-index">02</span>
+                    <h3><span data-sig-hover>AI &amp; Machine Learning</span></h3>
+                    <ul class="project-tags"><li>TENSORFLOW</li><li>KERAS</li><li>SCIKIT-LEARN</li><li>COMPUTER VISION</li><li>YOLOV11</li><li>OPENCV</li><li>NLP</li><li>CNN / RNN</li></ul>
+                </article>
+                <article class="expertise-item" data-editorial-reveal>
+                    <span class="project-index">03</span>
+                    <h3><span data-sig-hover>Voice &amp; Telephony</span></h3>
+                    <ul class="project-tags"><li>LIVEKIT</li><li>TWILIO</li><li>SIP</li><li>REAL-TIME VOICE AGENTS</li></ul>
+                </article>
+                <article class="expertise-item" data-editorial-reveal>
+                    <span class="project-index">04</span>
+                    <h3><span data-sig-hover>Backend &amp; Full Stack</span></h3>
+                    <ul class="project-tags"><li>PYTHON</li><li>DJANGO</li><li>FASTAPI</li><li>REST APIS</li><li>FULL STACK DEVELOPMENT</li></ul>
+                </article>
+                <article class="expertise-item" data-editorial-reveal>
+                    <span class="project-index">05</span>
+                    <h3><span data-sig-hover>Databases</span></h3>
+                    <ul class="project-tags"><li>POSTGRESQL</li><li>MONGODB</li></ul>
+                </article>
+                <article class="expertise-item" data-editorial-reveal>
+                    <span class="project-index">06</span>
+                    <h3><span data-sig-hover>DevOps &amp; Deployment</span></h3>
+                    <ul class="project-tags"><li>AWS EC2</li><li>NGINX</li><li>CI/CD</li><li>DOCKER</li><li>GITHUB</li></ul>
+                </article>
+                <article class="expertise-item" data-editorial-reveal>
+                    <span class="project-index">07</span>
+                    <h3><span data-sig-hover>Data Analysis</span></h3>
+                    <ul class="project-tags"><li>PANDAS</li><li>NUMPY</li><li>EDA</li><li>FEATURE ENGINEERING</li><li>MATPLOTLIB</li><li>SEABORN</li><li>PLOTLY</li></ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- IMPACT -->
+        <section id="impact" class="chapter solid-section impact">
+            <div class="section-label"><span><span data-sig>04 / IMPACT</span></span><span>THE COMMON THREAD</span></div>
+            <div class="impact-lead">
+                <div class="impact-value">10+</div>
+                <div class="impact-title" data-editorial-reveal>
+                    <h2>Reach is a number.<br><em>Impact is the model that ships.</em></h2>
+                    <p>Projects across medical imaging, voice, retrieval and automation — each built to work outside the notebook.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Professional Experience</h2>
-                <p class="section-subtitle">My journey in AI and machine learning</p>
+        <!-- JOURNEY -->
+        <section id="journey" class="chapter solid-section">
+            <div class="section-label"><span><span data-sig>05 / THE JOURNEY</span></span><span>STARTED WITH CODE. KEPT ASKING WHY.</span></div>
+            <div class="selected-heading" data-editorial-reveal>
+                <h2>Started with curiosity.<br><em>Kept asking why.</em></h2>
             </div>
             <div class="timeline">
-                <!-- First Position - Machine Learning Intern (Left side) -->
-                <div class="timeline-item left" data-aos="fade-right">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Machine Learning Intern</h3>
-                            <span class="timeline-company">AugAI</span>
-                            <span class="timeline-date">19th Nov 2024 - 31st Jan 2025</span>
-                        </div>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Learned about Machine Learning, AI & Deep Learning fundamentals and advanced concepts</li>
-                                <li>Learned Frameworks like Langchain, Langraph and Fine-Tuned LLMs on custom data</li>
-                                <li>Worked on various Web-Scraping projects to collect and process data for ML models</li>
-                                <li>Gained hands-on experience with data preprocessing and model training pipelines</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Current Position - Machine Learning & AI Engineer (Right side) -->
-                <div class="timeline-item right" data-aos="fade-left">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Machine Learning & AI Engineer</h3>
-                            <span class="timeline-company">AugAI</span>
-                            <span class="timeline-date">1st Feb 2025 - Present</span>
-                        </div>
-                        <div class="timeline-description">
-                            <ul>
-                                <li>Worked on AI and machine learning projects, applying advanced models to solve real-world problems</li>
-                                <li>Gained hands-on experience in training and optimizing ML models for performance and accuracy</li>
-                                <li>Developed AI-powered solutions and contributed to data processing, model evaluation, and deployment</li>
-                                <li>Worked on company projects that helped in gaining professional experience</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <article data-editorial-reveal><span>2023</span><div><h3>Began BS Computer Science</h3><p>University of Education, Main Campus, Lahore.</p></div></article>
+                <article data-editorial-reveal><span>NOV 2024 – JAN 2025</span><div><h3>Machine Learning Intern · AugAI</h3><p>Developed AI-powered solutions and contributed to data processing, model evaluation and deployment, with a focus on performance optimisation.</p></div></article>
+                <article data-editorial-reveal><span>FEB 2025 – JUL 2025</span><div><h3>Machine Learning &amp; AI Engineer · AugAI</h3><p>Worked on AI and ML projects, applying advanced models to real-world problems. Trained and optimised ML models.</p></div></article>
+                <article data-editorial-reveal><span>JUL 2025 – PRESENT</span><div><h3>Associate AI &amp; ML Engineer · Nexterse, Lahore</h3><p>Fashion recommendation model, real-time voice agents, Agentic RAG systems and computer vision. Team lead on Xorris. Deploying AI apps, backends and frontends on AWS EC2 with Nginx, with CI/CD, Docker, and production data on PostgreSQL and MongoDB. Collaborating with backend, frontend and mobile teams.</p></div></article>
+                <article data-editorial-reveal><span>NEXT</span><div><h3>Bigger systems. Better products.</h3><p>Open to meaningful work in AI.</p></div></article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Let's discuss opportunities and collaborate on AI projects</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=anssaleem504@gmail.com&su=Hello%20from%20your%20portfolio%20visitor!&body=Hi%20Anas,%0A%0AI%20visited%20your%20portfolio%20website%20and%20would%20like%20to%20connect%20with%20you.%0A%0ABest%20regards" target="_blank">anssaleem504@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <a href="tel:+923072936880">+92 307 2936880</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Location</h4>
-                            <span>Township, Lahore, Pakistan</span>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/anas-saleem2004/" target="_blank">linkedin.com/in/anas-saleem2004/</a>
-                        </div>
-                    </div>
-                </div>                <div class="contact-form" data-aos="fade-left">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                        </div>                        <button type="submit" class="btn btn-primary">Send Message</button>
-                        <p class="form-note">
-                            <small>
-                                💡 Click "Send Message" to see contact options and copy your message
-                            </small>
-                        </p>
-                    </form>
+        <!-- CONTACT -->
+        <section id="contact" class="chapter solid-section contact">
+            <div class="section-label"><span><span data-sig>06 / CONTACT</span></span><span>OPEN TO MEANINGFUL CONVERSATIONS</span></div>
+            <h2 class="contact-title" data-editorial-reveal>Something great<br>starts with <em>a hello.</em></h2>
+            <div class="contact-grid">
+                <div class="contact-info" data-editorial-reveal>
+                    <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=anssaleem504@gmail.com&su=Hello%20from%20your%20portfolio%20visitor!" target="_blank" rel="noopener"><small>EMAIL</small>anssaleem504@gmail.com</a>
+                    <a href="tel:+923072936880"><small>PHONE</small>+92 307 2936880</a>
+                    <a href="https://wa.me/923072936880?text=Hello%20Anas!%20I%20saw%20your%20portfolio." target="_blank" rel="noopener"><small>WHATSAPP</small>Message me</a>
+                    <a href="https://www.linkedin.com/in/anas-saleem2004/" target="_blank" rel="noopener"><small>LINKEDIN</small>anas-saleem2004</a>
+                    <span><small>LOCATION</small>Township, Lahore, Pakistan</span>
                 </div>
+                <form class="contact-form" id="contactForm" data-editorial-reveal>
+                    <label>YOUR NAME<input type="text" id="name" required></label>
+                    <label>YOUR EMAIL<input type="email" id="email" required></label>
+                    <label>SUBJECT<input type="text" id="subject" required></label>
+                    <label>YOUR MESSAGE<textarea id="message" rows="4" required></textarea></label>
+                    <button type="submit" class="pill-link"><span>Send message</span> ↗</button>
+                    <p class="form-note" id="formNote" role="status"></p>
+                </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Muhammad Anas Saleem. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/anas-saleem2004/" target="_blank" class="social-link">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=anssaleem504@gmail.com&su=Hello%20from%20your%20portfolio%20visitor!&body=Hi%20Anas,%0A%0AI%20visited%20your%20portfolio%20website%20and%20would%20like%20to%20connect%20with%20you.%0A%0ABest%20regards" class="social-link" target="_blank">
-                        <i class="far fa-envelope"></i>
-                    </a>
-                    <a href="tel:+923072936880" class="social-link">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>    <!-- WhatsApp Button -->
-    <a href="https://wa.me/923072936880?text=Hello%20Anas!%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect." 
-       target="_blank" 
-       class="whatsapp-float" 
-       aria-label="Contact via WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+        <span>© 2026 MUHAMMAD ANAS SALEEM</span>
+        <span>BUILT WITH INTENT. ALWAYS EVOLVING.</span>
+        <span class="foot-links"><a href="https://www.linkedin.com/in/anas-saleem2004/" target="_blank" rel="noopener">LINKEDIN</a><a href="mailto:anssaleem504@gmail.com">EMAIL</a><a href="#top">BACK TO TOP ↑</a></span>
+    </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <button class="motion-toggle" id="motionToggle" aria-pressed="true" aria-label="Motion on, pause animations"><span id="motionIcon">❚❚</span><span id="motionText">MOTION ON</span></button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="hero-image.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
